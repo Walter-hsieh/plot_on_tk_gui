@@ -65,7 +65,7 @@ quit_button.pack()
 
 
 # set action box
-action_label = tk.Label(root, text='You will see action statement showing here when you click any button ')
+action_label = tk.Label(root, text='You will see action statement showing here when you click any button')
 action_label.pack()
 
 
@@ -74,16 +74,20 @@ plot_title_default = 'This is your plot title'
 def set_plot_title():
     plot_title = plot_title_inp.get()
     ax.set_title(plot_title)
+    action_label.configure(text='plot title is set')
 
 # Create a save image function
 def save_image():
     global entry
     string = img_name.get()
     figure.savefig(string)
+    action_label.configure(text='image is saved')
 
+# clear graph
 def clear_graph():
     ax.cla()
     action_label.configure(text='graph is cleared')
+
 
 
 # Add the charts on the GUI by using this generic template
