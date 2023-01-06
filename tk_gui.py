@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.colors as mcolors
 import os
+import random
 
 # Create the GUI
 import tkinter as tk
@@ -110,10 +111,11 @@ def on_submit():
     columns = len(df.columns)
 
     for i in range(columns-1):
+
         label = colnames[1::]
         markers = ["o", "v", "s", "p", "x"]
-        df_new = df[["time_min", label[i]]].dropna()
-        ax.plot(df_new["time_min"], df_new[label[i]], label=label[i], color = color_list[i], marker=markers[i], linewidth=1)
+        df_new = df[[colnames[0], label[i]]].dropna()
+        ax.plot(df_new[df.columns[0]], df_new[label[i]], label=label[i], color = color_list[i], marker=markers[i], linewidth=1)
         ax.legend(loc=7, fontsize=10)
 
 
