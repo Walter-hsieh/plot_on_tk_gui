@@ -20,10 +20,6 @@ color_list = list(colors.values())
 files = list(filter(lambda x: 'xlsx' in x, os.listdir()))
 files_string = ', '.join(files)
 
-files_label = ttkb.Label(root, text=files_string)
-files_label.pack(pady=5)
-
-
 
 # Create a entry and button to change the title for the plot
 plot_title_label = ttkb.Label(root, text='Enter the title for this plot')
@@ -73,9 +69,10 @@ action_label.pack(pady=5)
 
 
 # set plot title function
+plot_title_default = 'This is your plot title'
 def set_plot_title():
-    # plot_title = plot_title_inp.get()
-    # ax.set_title(plot_title)
+    plot_title = plot_title_inp.get()
+    ax.set_title(plot_title)
     action_label.configure(text='plot title is set')
 
 # Create a save image function
@@ -87,18 +84,17 @@ def save_image():
 
 
 
+# Add the charts on the GUI by using this generic template
+figure = plt.Figure(figsize=(5, 4), dpi=100)
+ax = figure.add_subplot(111)
+ax.set_title(plot_title_default)
+ax.set_xlabel("time_min")
+ax.set_ylabel("water uptake_wt.%")
+ax.text(30, 0, "measured at 80%RH/ 25°C")
+
 
 
 def on_submit():
-
-    # Add the charts on the GUI by using this generic template
-    figure = plt.Figure(figsize=(5, 4), dpi=100)
-    ax = figure.add_subplot(111)
-    plot_title_default = plot_title_inp.get()
-    ax.set_title(plot_title_default)
-    ax.set_xlabel("time_min")
-    ax.set_ylabel("water uptake_wt.%")
-    ax.text(30, 0, "measured at 80%RH/ 25°C")
 
     filename = cb.get()
 
