@@ -1,1 +1,1 @@
-"C:\Program Files\Python38\python.exe" "C:\Users\A70459\Documents\GitHub\plot_on_tk_gui\ttkb_gui.py"
+"C:\Program Files\Python38\python.exe" "C:\Users\walte\Documents\GitHub\plot_on_tk_gui\ttkb_gui.py"

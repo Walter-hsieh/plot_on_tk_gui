@@ -79,7 +79,7 @@ def set_plot_title():
 def save_image():
     global entry
     string = img_name.get()
-    figure.savefig(string)
+    figure.savefig(string, dpi=1000)
     action_label.configure(text='image is saved')
 
 
