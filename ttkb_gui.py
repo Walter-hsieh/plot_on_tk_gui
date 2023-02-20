@@ -90,7 +90,8 @@ ax = figure.add_subplot(111)
 ax.set_title(plot_title_default)
 ax.set_xlabel("time_min")
 ax.set_ylabel("water uptake_wt.%")
-ax.text(30, 0, "measured at 80%RH/ 25°C")
+# ax.text(30, 0, "measured at 25°C")
+
 
 
 
@@ -110,6 +111,7 @@ def on_submit():
         df_new = df[[colnames[0], label[i]]].dropna()
         ax.plot(df_new[df.columns[0]], df_new[label[i]], label=label[i], color = color_list[i], marker=markers[i], linewidth=1)
         ax.legend(loc=7, fontsize=10)
+
 
 
     scatter = FigureCanvasTkAgg(figure, root)
